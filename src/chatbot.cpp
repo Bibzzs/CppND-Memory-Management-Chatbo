@@ -50,6 +50,7 @@ ChatBot::ChatBot(const ChatBot &source) // copy constructeur
     _image = new wxBitmap();
     *_image = *source._image;
     _chatLogic = source._chatLogic;
+
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 } 
@@ -91,6 +92,7 @@ ChatBot& ChatBot::operator=( ChatBot &&source)// move assingment operator
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
+    _chatLogic->SetChatbotHandle(this);
     source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
